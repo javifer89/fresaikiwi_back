@@ -1,21 +1,21 @@
 const router = require('express').Router();
 
-const salasController = require('../../controllers/salas.controller');
+const sesionesController = require('../../controllers/sesiones.controller');
 const { checkToken } = require('../../helpers/middlewares');
 
 //GET
-router.get("/", salasController.getAll)
-router.get("/:salaId", salasController.getById);
+router.get("/", sesionesController.getAll)
+router.get("/:sesionId", sesionesController.getById);
 
 //POST
-router.post("/", checkToken, salasController.create);
-router.post("/comprobar_salas", checkToken, salasController.comprobarSala);
+router.post("/", /*checkToken,*/ sesionesController.create);
+router.post("/comprobar_sesiones", /*checkToken,*/ sesionesController.comprobarSesion);
 
 //PUT
-router.put("/editar/:salaId", checkToken, salasController.update);
+router.put("/editar/:sesionId", /*checkToken, */sesionesController.update);
 
 //DELETE
-router.delete("/:salaId", checkToken, salasController.remove);
+router.delete("/:sesionId", /*checkToken,*/ sesionesController.remove);
 
 
 module.exports = router
