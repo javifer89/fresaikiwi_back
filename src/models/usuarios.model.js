@@ -46,7 +46,6 @@ module.exports = {
   getUsuarios,
   getByEmail,
   usuarioById,
-  usuarioByDNI,
   deleteById,
   updateById,
   getById,
