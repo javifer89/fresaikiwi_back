@@ -18,7 +18,7 @@ const getById = async (req, res) => {
     const [sesion] = await Sesion.sesionByid(req.params.sesionId);
 
     if (sesion.length === 0) {
-      return res.json({ fatal: "no existe esta sala" });
+      return res.json({ fatal: "no existe esa sesión" });
     }
 
     const [reservas] = await Reserva.reservasBySesion(sala[0].id);
@@ -29,7 +29,7 @@ const getById = async (req, res) => {
         title: reserva.titulo,
         description: reserva.descripcion,
         start: reserva.fecha_reserva,
-        end: reserva.fecha_fin_reserva,
+        end: reserva.fecha_fin_reserva, // TODO SOLUCIONAR HORA DE FIN DE SESION
       };
     });
 
@@ -41,8 +41,8 @@ const getById = async (req, res) => {
 
 // const getByUsuario = async (req, res) => {
 //   try {
-//     const [salas] = await Sala.usuarioSala(req.params.usersala);
-//     res.json(salas[0]);
+//     const [sesiones] = await Sesion.usuarioSesion(req.params.id);
+//     res.json(sesiones[0]);
 //   } catch (error) {
 //     res.json({ fatal: error.message });
 //   }
