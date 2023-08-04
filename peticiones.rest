@@ -1,0 +1,279 @@
+@host = http://localhost
+@port = 3000
+@apiSesiones = /api/sesiones
+@apiUsuarios = /api/usuarios
+# @apiStaff = /api/staff
+@apiReservas = /api/reservas
+@apiContacto = /api/contacto
+
+
+#########################
+##      API Sesiones      ##
+#########################
+GET {{host}}:{{port}}{{apiSesiones}}
+###
+
+GET {{host}}:{{port}}{{apiSesiones}}/16
+
+###
+# GET {{host}}:{{port}}{{apiSesiones}}/usersala
+
+###
+POST {{host}}:{{port}}{{apiSesiones}}
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+{
+  "precio": "100",
+  "aforo": 120,
+  "nombre":"los cisnes",
+  "direccion":"calle achuri 19",
+  "descripcion": "sala bonita",
+  "url_foto": "lo que sea",
+  "telefono_contacto":"682222131",
+  "email_contacto":"loscisnes@teatro.com"
+}
+
+###
+PUT {{host}}:{{port}}{{apiSesiones}}/editar/29
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+{
+  "precio": "150",
+  "disponible": true,
+  "aforo": 60,
+  "nombre": "Una Sala",
+  "direccion": "Casa Mario, 123",
+  "descripcion": "sala bonita",
+  "url_foto": "lo que sea",
+  "telefono_contacto":"682322131",
+  "email_contacto":"loscisnes2@teatro.com"
+}
+
+###
+POST {{host}}:{{port}}{{apiSesiones}}/comprobar_salas
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+{
+  "salas_id": "1",
+  "fecha_reserva": "2023-07-13",
+  "hora_reserva": "08:00:00"
+}
+
+###
+DELETE {{host}}:{{port}}{{apiSesiones}}/26
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+#########################
+##    API usuarios     ##
+#########################
+GET {{host}}:{{port}}{{apiUsuarios}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDEzNTMsImlhdCI6MTY5MDIxMjU1M30.nKJHh6UkWLO6RFFnVGWtUUZHqajbQNd55iynN4MehFM
+
+###
+GET {{host}}:{{port}}{{apiUsuarios}}/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDEzNTMsImlhdCI6MTY5MDIxMjU1M30.nKJHh6UkWLO6RFFnVGWtUUZHqajbQNd55iynN4MehFM
+
+
+###
+GET {{host}}:{{port}}{{apiUsuarios}}/perfil
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJleHAiOjE2OTA0MTIxMDIsImlhdCI6MTY5MDM4MzMwMn0.zJZ86aQ1b7ztZQYZq2S7W7bsJxo9jnG6Nm_nHr_fH5I
+
+###
+###
+GET {{host}}:{{port}}{{apiUsuarios}}/dni/123456789-A
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDEzNTMsImlhdCI6MTY5MDIxMjU1M30.nKJHh6UkWLO6RFFnVGWtUUZHqajbQNd55iynN4MehFM
+
+###
+POST {{host}}:{{port}}{{apiUsuarios}}/registro
+Content-Type: application/json
+
+{
+  "nombre": "urraca",
+  "direccion":"Rio de Janeiro, 26",
+  "email": "urraca@aaruuur.com",
+  "telefono":"644444444",
+  "dni":"12345678A",
+  "username":"urraca",
+  "password":"urraca"
+}
+
+###
+POST {{host}}:{{port}}{{apiUsuarios}}/login
+Content-Type: application/json
+
+{
+  "email": "urraca@aaruuur.com",
+  "password":"urraca"
+}
+
+###
+PUT {{host}}:{{port}}{{apiUsuarios}}/editar/6
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDEzNTMsImlhdCI6MTY5MDIxMjU1M30.nKJHh6UkWLO6RFFnVGWtUUZHqajbQNd55iynN4MehFM
+
+{
+  "username": "lolillo2",
+  "email": "pepe22@gmail.com",
+  "telefono": "626626626",
+  "dni": "53601579w",
+  "nombre": "Er Pepe2",
+  "direccion": "Calle esta app me saca de mis casillas"
+}
+###
+DELETE {{host}}:{{port}}{{apiUsuarios}}/26
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI2LCJleHAiOjE2OTA1MTc5NDksImlhdCI6MTY5MDQ4OTE0OX0.5Ik2wxrHEVdiUT4JOJRdfKHwlDm7UimlRQUze-_OO8I
+#########################
+##      API staff      ##
+#########################
+# GET {{host}}:{{port}}{{apiStaff}}
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+# ###
+# GET {{host}}:{{port}}{{apiStaff}}/id/17
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+# ###
+# GET {{host}}:{{port}}{{apiStaff}}/javito2
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+# ###
+# GET {{host}}:{{port}}{{apiStaff}}/perfil
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJleHAiOjE2OTA0MTEzODAsImlhdCI6MTY5MDM4MjU4MH0.eiTNj8HoclCoFVq0TsyfEe5HAu2r9J9nNVPGG-x6_ek
+
+# ###
+# POST {{host}}:{{port}}{{apiStaff}}/registro
+# Content-Type: application/json
+
+# {
+#   "nombre": "claudia",
+#   "rol":"administrador",
+#   "usuario": "claudia",
+#   "password":"claudia",
+#   "email":"claudia@.com"
+# }
+
+# ###
+# POST {{host}}:{{port}}{{apiStaff}}/login
+# Content-Type: application/json
+
+# {
+#   "email":"claudia@.com",
+#   "password":"claudia"
+# }
+
+# ###
+# PUT {{host}}:{{port}}{{apiStaff}}/editar/9
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+# {
+#   "nombre": "anananana",
+#   "rol": "trabajador",
+#   "usuario": "anaita",
+#   "email": "asdfasdfasdfasdf@ana.com"
+# }
+# ###
+
+# PUT {{host}}:{{port}}{{apiStaff}}/aceptar/14
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+# {
+#   "aceptada":1
+# }
+
+# ###
+# PUT {{host}}:{{port}}{{apiStaff}}/aceptar/staff/20
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+# {
+#   "aceptada":1
+# }
+
+
+# ###
+# DELETE {{host}}:{{port}}{{apiStaff}}/9
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJ1c2VyUm9sZSI6InRyYWJhamFkb3IiLCJleHAiOjE2OTAyNDIwMDUsImlhdCI6MTY5MDIxMzIwNX0.1SeVdPcLo5Ln1PvIOM-nL8OA9tlRTB5-vQp20jCO4nM
+
+
+#########################
+##     API reservas    ##
+#########################
+
+
+GET http://localhost:3000/api/sesiones/29
+
+###
+GET {{host}}:{{port}}{{apiReservas}}
+
+###
+GET {{host}}:{{port}}{{apiReservas}}/3
+
+
+###
+POST http://localhost:3000/api/reservas
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "salas_id": "29",
+  "fecha_reserva": "2023-08-30",
+  "fecha_fin_reserva": "2023-08-31",
+  "hora_reserva": "21:00",
+  "hora_fin_reserva": "22:00",
+  "titulo": "reserva 21",
+  "descripcion": "asdfasdfasdfasdf"
+}
+
+###
+PUT http://localhost:3000/api/reservas/editar/5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "salas_id": "29",
+  "fecha_reserva": "2023-08-30",
+  "fecha_fin_reserva": "2023-08-30",
+  "hora_reserva": "21:00",
+  "hora_fin_reserva": "22:00",
+  "titulo": "reserva 21",
+  "descripcion": "asdfasdfasdfasdf"
+}
+
+
+###
+PUT {{host}}:{{port}}{{apiReservas}}/aceptar/8
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "aceptada":1
+}
+
+
+###
+DELETE http://localhost:3000/api/reservas/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+
+###
+
+PUT {{host}}:{{port}}{{apiReservas}}/editar/
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzMDI0MTQsImlhdCI6MTY5MDI3MzYxNH0.nsnLROUkwZNz1EUDWyfV0or2Cz8f6L0P572pQ0FVNkE
+
+{
+  "usuarios_id": "7",
+  "salas_id": "11",
+  "fecha_reserva": "2023-08-30",
+  "fecha_fin_reserva": "2023-08-31",
+  "hora_reserva": "21:00",
+  "hora_fin_reserva": "22:00",
+  "titulo": "reserva 21",
+  "descripcion": "asdfasdfasdfasdf",
+  "aceptada": "1"
+}
+
+###

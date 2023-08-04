@@ -4,13 +4,12 @@ const router = require("express").Router();
 
 router.use("/usuarios", require("./api/usuarios"));
 
-router.use("/salas", /*checkToken,*/ require("./api/salas"));
-
-router.use("/staff", require("./api/staff"));
+router.use("/sesiones", /*checkToken,*/ require("./api/sesiones"));
 
 router.use("/contacto", require("./api/contacto"));
 
 router.use("/reservas", require("./api/reservas"));
 
+// router.use("/staff", require("./api/staff"));
 
 module.exports = router;
