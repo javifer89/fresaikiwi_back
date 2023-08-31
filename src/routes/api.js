@@ -10,6 +10,8 @@ router.use("/contacto", require("./api/contacto"));
 
 router.use("/reservas", require("./api/reservas"));
 
+router.use("/blog", require("./api/blog"));
+
 // router.use("/staff", require("./api/staff"));
 
 module.exports = router;

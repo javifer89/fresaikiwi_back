@@ -5,10 +5,10 @@
 # @apiStaff = /api/staff
 @apiReservas = /api/reservas
 @apiContacto = /api/contacto
-
+@apiBlog = /api/blog
 
 #########################
-##      API Sesiones      ##
+##      API Sesiones   ##
 #########################
 GET {{host}}:{{port}}{{apiSesiones}}
 ###
@@ -275,5 +275,61 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9s
   "descripcion": "asdfasdfasdfasdf",
   "aceptada": "1"
 }
+
+###
+
+#########################
+##     API Blog    ##
+#########################
+GET {{host}}:{{port}}{{apiBlog}}
+
+###
+GET {{host}}:{{port}}{{apiBlog}}/3
+###
+GET {{host}}:{{port}}{{apiBlog}}/sesiones
+# getByCategory
+
+###
+POST GET {{host}}:{{port}}{{apiBlog}}
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "usuario_id": "29",
+  "categoria": "",
+  "fecha_post": "2023-08-30",
+  "hora_post": "21:00",
+  "titulo": "post 21",
+  "texto": "asdfasdfasdfasdf"
+}
+
+###
+PUT {{host}}:{{port}}{{apiBlog}}/editar/5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "usuario_id": "29",
+  "categoria": "",
+  "fecha_post": "2023-08-30",
+  "hora_post": "21:00",
+  "titulo": "post 21",
+  "texto": "asdfasdfasdfasdf"
+}
+
+
+###
+PUT {{host}}:{{port}}{{apiBlog}}/aceptar/8
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
+
+{
+  "aceptada":1
+}
+
+
+###
+DELETE {{host}}:{{port}}{{apiBlog}}/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
 
 ###
