@@ -290,7 +290,7 @@ GET {{host}}:{{port}}{{apiBlog}}/sesiones
 # getByCategory
 
 ###
-POST GET {{host}}:{{port}}{{apiBlog}}
+POST {{host}}:{{port}}{{apiBlog}}
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE4LCJ1c2VyUm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE2OTAzOTA1NTUsImlhdCI6MTY5MDM2MTc1NX0.naG3o9pxmBzm7rddJ5ZB8KZpwYvjd2Gf5aXZeL2tz3g
 

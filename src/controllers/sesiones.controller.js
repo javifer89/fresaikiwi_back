@@ -21,8 +21,8 @@ const getById = async (req, res) => {
       return res.json({ fatal: "no existe esa sesión" });
     }
 
-    const [reservas] = await Reserva.reservasBySesion(sala[0].id);
-  sala[0].reservas = reservas.map((reserva) => {
+    const [reservas] = await Reserva.reservasBySesion(sesion[0].id);
+  sesion[0].reservas = reservas.map((reserva) => {
       //transformo a string las fechas y horas de reserva
 
       return {
@@ -33,7 +33,7 @@ const getById = async (req, res) => {
       };
     });
 
-    res.json(sala[0]);
+    res.json(reservas[0]);
   } catch (error) {
     res.json({ fatal: error.message });
   }
@@ -88,7 +88,7 @@ const create = async (req, res) => {
 const comprobarSesion = async (req, res) => {
   try {
     const { sesion_id, fecha_reserva, hora_reserva } = req.body;
-    const sesionDisponible = await Sesion.checkSalas(
+    const sesionDisponible = await Sesion.checkSesiones(
       sesion_id,
       fecha_reserva,
       hora_reserva
